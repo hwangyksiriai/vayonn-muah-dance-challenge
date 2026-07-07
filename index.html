@@ -22,7 +22,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 :focus-visible{outline:2px solid var(--coral);outline-offset:2px}
-body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.7;min-height:100vh;display:flex;align-items:center;-webkit-tap-highlight-color:transparent}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.7;min-height:100vh;display:flex;align-items:center;-webkit-tap-highlight-color:transparent;word-break:keep-all;overflow-wrap:break-word}
 .wrap{max-width:520px;margin:0 auto;padding:56px 24px}
 
 .eyebrow{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--lavender-dark);text-transform:uppercase;background:var(--lavender-tint);border-radius:100px;padding:6px 16px;margin-bottom:20px;font-weight:600}
@@ -34,7 +34,7 @@ h1{font-size:clamp(26px,7vw,34px);font-weight:900;letter-spacing:.01em;line-heig
 .lang-card:hover{border-color:var(--coral);box-shadow:0 8px 24px rgba(51,43,69,.08)}
 .lang-card:active{transform:scale(.99)}
 .lang-flag{font-size:26px;flex:none;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--lavender-tint)}
-.lang-body{flex:1}
+.lang-body{flex:1;min-width:0}
 .lang-song{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--coral-dark);font-weight:600;margin-bottom:4px}
 .lang-title{font-size:16.5px;font-weight:800}
 .lang-desc{font-size:12.5px;color:var(--gray);margin-top:3px}

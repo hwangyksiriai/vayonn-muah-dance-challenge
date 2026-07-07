@@ -22,7 +22,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 :focus-visible{outline:2px solid var(--coral);outline-offset:2px}
-body{font-family:var(--jp);background:var(--bg);color:var(--ink);line-height:1.75;-webkit-tap-highlight-color:transparent}
+body{font-family:var(--jp);background:var(--bg);color:var(--ink);line-height:1.75;-webkit-tap-highlight-color:transparent;word-break:keep-all;overflow-wrap:break-word}
 .wrap{max-width:640px;margin:0 auto}
 @media(prefers-reduced-motion:reduce){*{transition:none !important}}
 
@@ -57,10 +57,11 @@ body{font-family:var(--jp);background:var(--bg);color:var(--ink);line-height:1.7
 .video-card:hover{border-color:var(--lavender)}
 .video-card:active{transform:scale(.98)}
 .play-icon{flex:none;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--coral),var(--lavender));display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px}
+.video-info{min-width:0}
 .video-info strong{display:block;font-size:14.5px;font-weight:700}
 .video-info span{font-size:12px;color:var(--gray)}
 
-.embed-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 14px 4px;margin-top:10px}
+.embed-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 14px 4px;margin-top:10px;overflow:hidden}
 .embed-card .embed-label{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--ink);padding:0 2px 12px}
 .embed-card .tiktok-embed{margin:0 auto !important}
 
@@ -84,7 +85,7 @@ body{font-family:var(--jp);background:var(--bg);color:var(--ink);line-height:1.7
 .steps{display:flex;flex-direction:column;gap:10px}
 .step{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
 .step-num{flex:none;width:26px;font-family:var(--mono);font-weight:700;font-size:14px;color:var(--coral-dark);font-variant-numeric:tabular-nums}
-.step-text{font-size:14px;padding-top:1px}
+.step-text{font-size:14px;padding-top:1px;min-width:0}
 .step-text strong{color:var(--lavender-dark)}
 
 /* ---------- TIMELINE ---------- */
@@ -92,7 +93,7 @@ body{font-family:var(--jp);background:var(--bg);color:var(--ink);line-height:1.7
 .tl-row{display:flex;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);align-items:baseline}
 .tl-row:last-child{border-bottom:none}
 .tl-date{flex:none;width:112px;font-family:var(--mono);font-size:12px;color:var(--coral-dark);font-weight:600;font-variant-numeric:tabular-nums}
-.tl-label{font-size:13.5px}
+.tl-label{font-size:13.5px;min-width:0}
 
 /* ---------- FORM ---------- */
 .form-section{background:var(--lavender-tint);padding:44px 24px 52px}
@@ -104,7 +105,7 @@ body{font-family:var(--jp);background:var(--bg);color:var(--ink);line-height:1.7
 .field .hint{font-family:var(--mono);font-size:11px;color:var(--gray);margin-top:6px}
 .checkfield{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:22px}
 .checkfield input{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--coral)}
-.checkfield label{font-size:13.5px;line-height:1.6;color:var(--ink)}
+.checkfield label{font-size:13.5px;line-height:1.6;color:var(--ink);min-width:0}
 .submit-btn{width:100%;background:var(--coral);color:#fff;border:none;border-radius:100px;padding:18px;font-size:16.5px;font-weight:900;cursor:pointer;letter-spacing:.02em}
 .submit-btn:hover{background:var(--coral-dark)}
 .success-box{display:none;background:#fff;color:var(--ink);border:1.5px solid var(--coral);border-radius:14px;padding:22px;text-align:center;margin-top:18px;font-size:14px;font-weight:700}
@@ -159,7 +160,7 @@ body{font-family:var(--jp);background:var(--bg);color:var(--ink);line-height:1.7
 
     <div class="embed-card">
       <div class="embed-label">🎬 参考動画③ <span style="color:var(--gray);font-weight:500">(その場で再生)</span></div>
-      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@vayonn_inkode/video/7659345454953401621" data-video-id="7659345454953401621" style="max-width: 100%; min-width: 280px;">
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@vayonn_inkode/video/7659345454953401621" data-video-id="7659345454953401621" style="max-width: 100%; min-width: 0;">
         <section><a target="_blank" href="https://www.tiktok.com/@vayonn_inkode?refer=embed">@vayonn_inkode</a></section>
       </blockquote>
     </div>
@@ -172,7 +173,7 @@ body{font-family:var(--jp);background:var(--bg);color:var(--ink);line-height:1.7
     <a class="sound-btn" href="https://vt.tiktok.com/ZS9MNSSYtcYj1-HDAXo/" target="_blank" rel="noopener">🎵 公式音源はこちら（TikTok）</a>
     <div class="warn">
       <b>⚠️ 必ず公式音源を「使用」してください</b>
-      オリジナルサウンドではなく、上のリンクの公式音源を必ず使用して投稿してください。原音での投稿は対象外になりますのでご注意ください。
+      オリジナルサウンドではなく、上のリンクの公式音源を必ず使用して投稿してください。<br>原音での投稿は対象外になりますのでご注意ください。
     </div>
   </div>
 
