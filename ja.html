@@ -302,14 +302,17 @@ function cp(btn){
   navigator.clipboard.writeText(text).then(()=>{btn.textContent='コピー済み!';btn.classList.add('done');setTimeout(()=>{btn.textContent='コピー';btn.classList.remove('done')},1500)});
 }
 
-// TODO: 実際の送信先(Google FormsのURLまたは自社バックエンドAPI)が決まり次第、
-// ここでfetch送信 or Googleフォームのformresponseエンドポイントへの送信処理に置き換える。
+// 応募内容をGoogleスプレッドシートに保存するApps Script WebアプリのURL。
+// google-apps-script.gs の手順でデプロイして発行される「...../exec」リンクをここに入れると保存が開始される。
+const GOOGLE_SCRIPT_URL = '';
+
 document.getElementById('applyForm').addEventListener('submit', function(e){
   e.preventDefault();
+  const form = this;
   const errorBox = document.getElementById('formError');
-  const tiktok = this.tiktok.value.trim();
-  const instagram = this.instagram.value.trim();
-  const agree = this.agree.checked;
+  const tiktok = form.tiktok.value.trim();
+  const instagram = form.instagram.value.trim();
+  const agree = form.agree.checked;
   if(!tiktok && !instagram){
     errorBox.textContent = 'TikTok・Instagramのうち、少なくとも1つのアカウントリンクをご入力ください。';
     errorBox.style.display = 'block';
@@ -321,7 +324,22 @@ document.getElementById('applyForm').addEventListener('submit', function(e){
     return;
   }
   errorBox.style.display = 'none';
-  this.style.display = 'none';
+
+  if(GOOGLE_SCRIPT_URL){
+    const body = new URLSearchParams({
+      lang: 'ja',
+      tiktok: tiktok,
+      instagram: instagram,
+      email: form.email.value.trim(),
+      postdate: form.postdate.value,
+      contact: form.contact.value.trim(),
+      agree: agree ? 'Y' : 'N',
+      moreInfo: form.moreInfo.checked ? 'Y' : 'N'
+    });
+    fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: body }).catch(()=>{});
+  }
+
+  form.style.display = 'none';
   document.getElementById('successBox').style.display = 'block';
 });
 </script>

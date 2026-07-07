@@ -302,14 +302,17 @@ function cp(btn){
   navigator.clipboard.writeText(text).then(()=>{btn.textContent='복사됨!';btn.classList.add('done');setTimeout(()=>{btn.textContent='복사';btn.classList.remove('done')},1500)});
 }
 
-// TODO: 실제 제출처(Google Forms URL 또는 자체 백엔드 API)가 정해지면
-// 이 부분을 fetch 전송 or Google Forms formresponse 엔드포인트 전송 로직으로 교체.
+// 구글시트에 응답을 저장하는 Apps Script 웹앱 URL. google-apps-script.gs 안내에 따라
+// 배포한 뒤 발급되는 "...../exec" 링크를 여기에 넣으면 실제 저장이 시작된다.
+const GOOGLE_SCRIPT_URL = '';
+
 document.getElementById('applyForm').addEventListener('submit', function(e){
   e.preventDefault();
+  const form = this;
   const errorBox = document.getElementById('formError');
-  const tiktok = this.tiktok.value.trim();
-  const instagram = this.instagram.value.trim();
-  const agree = this.agree.checked;
+  const tiktok = form.tiktok.value.trim();
+  const instagram = form.instagram.value.trim();
+  const agree = form.agree.checked;
   if(!tiktok && !instagram){
     errorBox.textContent = 'TikTok·Instagram 중 최소 1개는 입력해주세요.';
     errorBox.style.display = 'block';
@@ -321,7 +324,22 @@ document.getElementById('applyForm').addEventListener('submit', function(e){
     return;
   }
   errorBox.style.display = 'none';
-  this.style.display = 'none';
+
+  if(GOOGLE_SCRIPT_URL){
+    const body = new URLSearchParams({
+      lang: 'ko',
+      tiktok: tiktok,
+      instagram: instagram,
+      email: form.email.value.trim(),
+      postdate: form.postdate.value,
+      contact: form.contact.value.trim(),
+      agree: agree ? 'Y' : 'N',
+      moreInfo: form.moreInfo.checked ? 'Y' : 'N'
+    });
+    fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: body }).catch(()=>{});
+  }
+
+  form.style.display = 'none';
   document.getElementById('successBox').style.display = 'block';
 });
 </script>
