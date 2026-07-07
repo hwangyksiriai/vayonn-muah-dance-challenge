@@ -211,8 +211,14 @@ body{font-family:var(--kr);background:var(--bg);color:var(--ink);line-height:1.7
 
     <form id="applyForm">
       <div class="field">
-        <label>🎵 TikTok / Instagram 계정 링크 <span class="badge-req">필수</span></label>
-        <input type="text" name="account" placeholder="https://www.tiktok.com/@your_id 또는 인스타그램 프로필 링크" required>
+        <label>🎵 TikTok 계정 링크 <span class="badge-opt">선택</span></label>
+        <input type="text" name="tiktok" placeholder="https://www.tiktok.com/@your_id">
+      </div>
+
+      <div class="field">
+        <label>📸 Instagram 계정 링크 <span class="badge-opt">선택</span></label>
+        <input type="text" name="instagram" placeholder="https://www.instagram.com/your_id">
+        <div class="hint">TikTok·Instagram 중 최소 1개는 입력해주세요</div>
       </div>
 
       <div class="field">
@@ -260,6 +266,12 @@ function cp(btn,id){
 // 이 부분을 fetch 전송 또는 Google Forms formresponse 엔드포인트 전송 로직으로 교체.
 document.getElementById('applyForm').addEventListener('submit', function(e){
   e.preventDefault();
+  const tiktok=this.tiktok.value.trim();
+  const instagram=this.instagram.value.trim();
+  if(!tiktok && !instagram){
+    alert('TikTok·Instagram 중 최소 1개의 계정 링크를 입력해주세요.');
+    return;
+  }
   this.style.display='none';
   document.getElementById('successBox').style.display='block';
 });

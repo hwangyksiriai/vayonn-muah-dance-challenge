@@ -211,8 +211,14 @@ body{font-family:var(--jp);background:var(--bg);color:var(--ink);line-height:1.7
 
     <form id="applyForm">
       <div class="field">
-        <label>🎵 TikTok / Instagramアカウントリンク <span class="badge-req">必須</span></label>
-        <input type="text" name="account" placeholder="https://www.tiktok.com/@your_id または Instagramのプロフィールリンク" required>
+        <label>🎵 TikTokアカウントリンク <span class="badge-opt">任意</span></label>
+        <input type="text" name="tiktok" placeholder="https://www.tiktok.com/@your_id">
+      </div>
+
+      <div class="field">
+        <label>📸 Instagramアカウントリンク <span class="badge-opt">任意</span></label>
+        <input type="text" name="instagram" placeholder="https://www.instagram.com/your_id">
+        <div class="hint">TikTok・Instagramのうち、少なくとも1つはご入力ください</div>
       </div>
 
       <div class="field">
@@ -260,6 +266,12 @@ function cp(btn,id){
 // ここでfetch送信 or Googleフォームのformresponseエンドポイントへの送信処理に置き換える。
 document.getElementById('applyForm').addEventListener('submit', function(e){
   e.preventDefault();
+  const tiktok=this.tiktok.value.trim();
+  const instagram=this.instagram.value.trim();
+  if(!tiktok && !instagram){
+    alert('TikTok・Instagramのうち、少なくとも1つのアカウントリンクをご入力ください。');
+    return;
+  }
   this.style.display='none';
   document.getElementById('successBox').style.display='block';
 });
