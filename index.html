@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VAYONN「MUAH!」Dance Challenge</title>
+<style>
+:root{
+  --bg:#FFF9F2;
+  --ink:#332B45;
+  --coral:#FF6F5E;
+  --coral-dark:#E5503F;
+  --coral-tint:#FFE4DD;
+  --lavender:#8C7AE0;
+  --lavender-dark:#6A57C4;
+  --lavender-tint:#EFE9FC;
+  --card:#FFFFFF;
+  --line:rgba(51,43,69,.10);
+  --gray:#8D8296;
+  --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",monospace;
+  --font:"Hiragino Kaku Gothic ProN","Apple SD Gothic Neo","Malgun Gothic","Yu Gothic",Meiryo,-apple-system,BlinkMacSystemFont,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.7;min-height:100vh;display:flex;align-items:center;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:520px;margin:0 auto;padding:56px 24px}
+
+.eyebrow{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--lavender-dark);text-transform:uppercase;background:var(--lavender-tint);border-radius:100px;padding:6px 16px;margin-bottom:20px;font-weight:600}
+h1{font-size:clamp(26px,7vw,34px);font-weight:900;letter-spacing:.01em;line-height:1.4;text-wrap:balance;margin-bottom:10px}
+.sub{font-size:13.5px;color:var(--gray);margin-bottom:36px}
+
+.langs{display:flex;flex-direction:column;gap:14px}
+.lang-card{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;text-decoration:none;color:var(--ink);transition:transform .12s,border-color .12s,box-shadow .12s}
+.lang-card:hover{border-color:var(--coral);box-shadow:0 8px 24px rgba(51,43,69,.08)}
+.lang-card:active{transform:scale(.99)}
+.lang-flag{font-size:26px;flex:none;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--lavender-tint)}
+.lang-body{flex:1}
+.lang-song{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--coral-dark);font-weight:600;margin-bottom:4px}
+.lang-title{font-size:16.5px;font-weight:800}
+.lang-desc{font-size:12.5px;color:var(--gray);margin-top:3px}
+.lang-arrow{font-family:var(--mono);font-size:18px;color:var(--coral)}
+
+.footer{text-align:center;margin-top:40px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--gray)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">iNKODE PRESENTS · K-POP DANCE CHALLENGE</div>
+  <h1>댄스 챌린지</h1>
+  <p class="sub">언어를 선택해주세요 / 言語を選んでください</p>
+
+  <div class="langs">
+    <a class="lang-card" href="./ja.html">
+      <div class="lang-flag">🇯🇵</div>
+      <div class="lang-body">
+        <div class="lang-song">VAYONN「MUAH!」</div>
+        <div class="lang-title">日本語で見る</div>
+        <div class="lang-desc">応募ページ（日本語版）</div>
+      </div>
+      <div class="lang-arrow">→</div>
+    </a>
+    <a class="lang-card" href="./ko.html">
+      <div class="lang-flag">🇰🇷</div>
+      <div class="lang-body">
+        <div class="lang-song">VAYONN「MUAH!」</div>
+        <div class="lang-title">한국어로 보기</div>
+        <div class="lang-desc">응모 페이지 (한국어판)</div>
+      </div>
+      <div class="lang-arrow">→</div>
+    </a>
+  </div>
+
+  <div class="footer">SIRIAI · INFLUENCER MARKETING AGENCY</div>
+</div>
+</body>
+</html>

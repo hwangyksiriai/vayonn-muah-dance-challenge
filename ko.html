@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VAYONN「MUAH!」Dance Challenge 모집</title>
+<style>
+:root{
+  --bg:#FFF9F2;
+  --ink:#332B45;
+  --coral:#FF6F5E;
+  --coral-dark:#E5503F;
+  --coral-tint:#FFE4DD;
+  --lavender:#8C7AE0;
+  --lavender-dark:#6A57C4;
+  --lavender-tint:#EFE9FC;
+  --card:#FFFFFF;
+  --line:rgba(51,43,69,.10);
+  --gray:#8D8296;
+  --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono",monospace;
+  --kr:"Apple SD Gothic Neo","Malgun Gothic",-apple-system,BlinkMacSystemFont,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
+body{font-family:var(--kr);background:var(--bg);color:var(--ink);line-height:1.75;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:640px;margin:0 auto}
+@media(prefers-reduced-motion:reduce){*{transition:none !important}}
+
+/* ---------- HERO ---------- */
+.hero{background:linear-gradient(155deg,var(--lavender-tint) 0%,var(--bg) 45%,var(--coral-tint) 100%);padding:52px 24px 36px;text-align:center;position:relative;overflow:hidden}
+.hero-eyebrow{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--lavender-dark);text-transform:uppercase;background:rgba(255,255,255,.7);border:1px solid rgba(140,122,224,.35);border-radius:100px;padding:6px 16px;margin-bottom:22px;position:relative;font-weight:600}
+.hero h1{font-size:clamp(28px,9vw,42px);font-weight:900;letter-spacing:.01em;line-height:1.3;text-wrap:balance;position:relative;color:var(--ink)}
+.hero-song{font-size:14px;color:var(--coral-dark);margin-top:14px;position:relative;font-weight:700}
+.hero-desc{font-size:13.5px;color:var(--gray);margin:16px auto 0;max-width:420px;position:relative}
+.hero-date{margin-top:22px;position:relative;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:#fff;background:var(--coral);display:inline-block;padding:8px 18px;border-radius:100px;font-weight:600}
+
+/* ---------- REWARD STRIP ---------- */
+.reward-strip{background:var(--coral);color:#fff;text-align:center;padding:16px 20px}
+.reward-strip .main{font-weight:900;font-size:15px;letter-spacing:.01em}
+.reward-strip .sub{font-family:var(--mono);font-size:11px;margin-top:4px;color:#FFE1DC}
+
+/* ---------- SECTION ---------- */
+.section{padding:38px 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--lavender-dark);margin-bottom:10px;font-weight:600}
+.section h2{font-size:19px;font-weight:900;margin-bottom:16px;letter-spacing:.01em;color:var(--ink)}
+.badge-req{display:inline-block;background:var(--coral);color:#fff;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.06em;border-radius:6px;padding:2px 8px;margin-left:6px}
+.badge-opt{display:inline-block;background:transparent;color:var(--gray);font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.06em;border-radius:6px;padding:2px 8px;margin-left:6px;border:1px solid var(--line)}
+
+/* ---------- OVERVIEW GRID ---------- */
+.overview{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ov-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.ov-label{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:6px}
+.ov-value{font-size:15px;font-weight:700}
+
+/* ---------- VIDEO GUIDE CARDS ---------- */
+.video-card{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:10px;text-decoration:none;color:var(--ink);transition:transform .12s,border-color .12s}
+.video-card:hover{border-color:var(--lavender)}
+.video-card:active{transform:scale(.98)}
+.play-icon{flex:none;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--coral),var(--lavender));display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px}
+.video-info strong{display:block;font-size:14.5px;font-weight:700}
+.video-info span{font-size:12px;color:var(--gray)}
+
+/* ---------- SOUND BUTTON ---------- */
+.sound-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--lavender);color:#fff;text-decoration:none;font-weight:700;font-size:14.5px;border-radius:100px;padding:15px 20px;width:100%}
+.sound-btn:hover{background:var(--lavender-dark)}
+
+/* ---------- WARNING ---------- */
+.warn{background:var(--coral-tint);border-left:3px solid var(--coral);border-radius:0 12px 12px 0;padding:14px 16px;margin-top:14px;font-size:13px;color:#9C3A2C}
+.warn b{display:block;font-size:13.5px;margin-bottom:4px;color:var(--coral-dark)}
+.note{font-size:12.5px;color:var(--gray);margin-top:12px}
+
+/* ---------- HASHTAG ---------- */
+.copybox{background:var(--card);color:var(--ink);border:1.5px dashed var(--coral);border-radius:14px;padding:16px;font-family:var(--mono);font-size:14.5px;font-weight:700;white-space:pre-wrap;position:relative;letter-spacing:.01em}
+.copybtn{position:absolute;top:10px;right:10px;background:var(--lavender);color:#fff;border:none;border-radius:6px;font-family:var(--mono);font-size:11px;font-weight:600;padding:6px 12px;cursor:pointer}
+.copybtn.done{background:var(--coral)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.tag{background:var(--lavender-tint);color:var(--lavender-dark);font-family:var(--mono);font-size:12.5px;font-weight:600;border-radius:100px;padding:6px 14px}
+
+/* ---------- STEPS ---------- */
+.steps{display:flex;flex-direction:column;gap:10px}
+.step{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.step-num{flex:none;width:26px;font-family:var(--mono);font-weight:700;font-size:14px;color:var(--coral-dark);font-variant-numeric:tabular-nums}
+.step-text{font-size:14px;padding-top:1px}
+.step-text strong{color:var(--lavender-dark)}
+
+/* ---------- TIMELINE ---------- */
+.tl{display:flex;flex-direction:column}
+.tl-row{display:flex;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.tl-row:last-child{border-bottom:none}
+.tl-date{flex:none;width:112px;font-family:var(--mono);font-size:12px;color:var(--coral-dark);font-weight:600;font-variant-numeric:tabular-nums}
+.tl-label{font-size:13.5px}
+
+/* ---------- FORM ---------- */
+.form-section{background:var(--lavender-tint);padding:44px 24px 52px}
+.form-note{font-size:13px;color:var(--gray);margin-bottom:24px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:14px;font-weight:700;margin-bottom:8px;color:var(--ink)}
+.field input[type=text],.field input[type=email],.field input[type=date]{width:100%;padding:14px 16px;border-radius:10px;border:1.5px solid var(--line);font-size:15px;background:#fff;color:var(--ink);font-family:var(--kr)}
+.field input:focus{border-color:var(--coral)}
+.field .hint{font-family:var(--mono);font-size:11px;color:var(--gray);margin-top:6px}
+.checkfield{display:flex;align-items:flex-start;gap:10px;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:22px}
+.checkfield input{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--coral)}
+.checkfield label{font-size:13.5px;line-height:1.6;color:var(--ink)}
+.submit-btn{width:100%;background:var(--coral);color:#fff;border:none;border-radius:100px;padding:18px;font-size:16.5px;font-weight:900;cursor:pointer;letter-spacing:.02em}
+.submit-btn:hover{background:var(--coral-dark)}
+.success-box{display:none;background:#fff;color:var(--ink);border:1.5px solid var(--coral);border-radius:14px;padding:22px;text-align:center;margin-top:18px;font-size:14px;font-weight:700}
+
+.footer{text-align:center;padding:36px 24px}
+.footer-brand{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--gray)}
+@media(max-width:420px){.overview{grid-template-columns:1fr}.tl-date{width:92px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">iNKODE PRESENTS · K-POP 댄스 챌린지</div>
+    <h1>VAYONN「MUAH!」<br>댄스 챌린지</h1>
+    <div class="hero-song">틱톡·인스타그램 댄서 모집중 🎬</div>
+    <p class="hero-desc">JAEJOONG(재중)이 설립한 iNKODE의 신인 보이그룹 VAYONN. 데뷔곡 「MUAH!」의 댄스 챌린지에 함께해주실 댄서분들을 찾고 있어요!</p>
+    <div class="hero-date">데뷔일 2026.07.06 MON</div>
+  </div>
+
+  <div class="reward-strip">
+    <div class="main">🎁 참여만 해도 Amazon 기프트권 5,000엔 증정</div>
+    <div class="sub">선착순 안내입니다. 서둘러 응모해주세요.</div>
+  </div>
+
+  <!-- 개요 -->
+  <div class="section">
+    <div class="eyebrow">Overview</div>
+    <h2>캠페인 개요</h2>
+    <div class="overview">
+      <div class="ov-card"><div class="ov-label">아티스트</div><div class="ov-value">VAYONN(바욘)</div></div>
+      <div class="ov-card"><div class="ov-label">곡명</div><div class="ov-value">MUAH!(데뷔곡)</div></div>
+      <div class="ov-card"><div class="ov-label">게시 기간</div><div class="ov-value">7/6(월)~7/12(일)</div></div>
+      <div class="ov-card"><div class="ov-label">플랫폼</div><div class="ov-value">TikTok / Instagram</div></div>
+    </div>
+  </div>
+
+  <!-- 참고 영상 -->
+  <div class="section">
+    <div class="eyebrow">Reference</div>
+    <h2>참고 안무 영상</h2>
+    <p style="font-size:13px;color:var(--gray);margin-bottom:14px">탭하면 새 탭에서 영상이 열려요. 안무 참고용으로 확인해주세요✨</p>
+    <a class="video-card" href="https://drive.google.com/file/d/1btl95OX0FNm8EqEFYrb4mGRq1fpMp9-M/view?usp=sharing" target="_blank" rel="noopener">
+      <div class="play-icon">▶</div>
+      <div class="video-info"><strong>참고 영상①</strong><span>안무 가이드 영상 보기</span></div>
+    </a>
+    <a class="video-card" href="https://drive.google.com/file/d/1TACH6cE2FglRGYXEC2fuQhaWNb7z7CUu/view?usp=sharing" target="_blank" rel="noopener">
+      <div class="play-icon">▶</div>
+      <div class="video-info"><strong>참고 영상②</strong><span>안무 가이드 영상 보기</span></div>
+    </a>
+  </div>
+
+  <!-- 공식 음원 -->
+  <div class="section">
+    <div class="eyebrow">Required</div>
+    <h2>공식 음원 <span class="badge-req">필수</span></h2>
+    <a class="sound-btn" href="https://vt.tiktok.com/ZS9MNSSYtcYj1-HDAXo/" target="_blank" rel="noopener">🎵 공식 음원 바로가기 (TikTok)</a>
+    <div class="warn">
+      <b>⚠️ 반드시 공식 음원을 사용해주세요</b>
+      오리지널 사운드(직접 녹음한 음원)가 아니라, 위 링크의 공식 음원을 반드시 사용(태그)하여 게시해주세요. 원음으로 게시할 경우 대상에서 제외됩니다.
+    </div>
+    <p class="note">※인스타그램 릴스로 게시하는 경우, 동일한 공식 음원을 오디오로 설정하거나, 캡션에 곡명 「MUAH!」와 필수 해시태그를 반드시 기재해주세요.</p>
+  </div>
+
+  <!-- 해시태그 -->
+  <div class="section">
+    <div class="eyebrow">Required</div>
+    <h2>필수 해시태그 <span class="badge-req">필수</span></h2>
+    <div class="copybox" id="tag">#Youth_Today #MUAH #VAYONN<button class="copybtn" onclick="cp(this,'tag')">복사</button></div>
+    <div class="tags">
+      <span class="tag">#Youth_Today</span>
+      <span class="tag">#MUAH</span>
+      <span class="tag">#VAYONN</span>
+    </div>
+  </div>
+
+  <!-- 참여 방법 -->
+  <div class="section">
+    <div class="eyebrow">How to join</div>
+    <h2>참여 방법</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><div class="step-text"><strong>공식 음원</strong>을 사용해 TikTok 또는 Instagram에서 댄스 영상 촬영</div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-text"><strong>필수 해시태그 3개</strong>와 공식 음원을 태그하여, <strong>7/6~7/12</strong> 사이에 게시</div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-text">아래 <strong>응모 폼</strong>에 필요한 정보를 입력 후 제출</div></div>
+      <div class="step"><div class="step-num">04</div><div class="step-text">확인 후 담당자로부터 연락 → <strong>Amazon 기프트권 5,000엔</strong> 증정🎁</div></div>
+    </div>
+  </div>
+
+  <!-- 일정 -->
+  <div class="section">
+    <div class="eyebrow">Schedule</div>
+    <h2>일정</h2>
+    <div class="tl">
+      <div class="tl-row"><div class="tl-date">~선착순</div><div class="tl-label">응모 접수</div></div>
+      <div class="tl-row"><div class="tl-date">7/6 MON</div><div class="tl-label">음원 발매·게시 시작</div></div>
+      <div class="tl-row"><div class="tl-date">7/6–7/12</div><div class="tl-label">챌린지 게시 기간</div></div>
+      <div class="tl-row"><div class="tl-date">게시 후</div><div class="tl-label">확인·확정 연락</div></div>
+      <div class="tl-row"><div class="tl-date">확정 후</div><div class="tl-label">Amazon 기프트권 증정</div></div>
+    </div>
+  </div>
+
+  <!-- 응모 폼 -->
+  <div class="form-section">
+    <div class="eyebrow">Apply</div>
+    <h2>응모 폼</h2>
+    <p class="form-note">꼭 필요한 항목만 담은 간단한 폼이에요. 1분이면 완료됩니다📝</p>
+
+    <form id="applyForm">
+      <div class="field">
+        <label>🎵 TikTok / Instagram 계정 링크 <span class="badge-req">필수</span></label>
+        <input type="text" name="account" placeholder="https://www.tiktok.com/@your_id 또는 인스타그램 프로필 링크" required>
+      </div>
+
+      <div class="field">
+        <label>📧 이메일 주소 <span class="badge-req">필수</span></label>
+        <input type="email" name="email" placeholder="example@email.com" required>
+      </div>
+
+      <div class="field">
+        <label>📅 게시 예정일 <span class="badge-opt">선택</span></label>
+        <input type="date" name="postdate" min="2026-07-06" max="2026-07-12">
+        <div class="hint">게시 기간: 2026년 7월 6일(월)~7월 12일(일)</div>
+      </div>
+
+      <div class="field">
+        <label>📱 연락처(전화번호 또는 라인 ID) <span class="badge-opt">선택</span></label>
+        <input type="text" name="contact" placeholder="연락 가능한 방법을 적어주세요">
+      </div>
+
+      <div class="checkfield">
+        <input type="checkbox" id="agree" name="agree" required>
+        <label for="agree">네, 내용을 확인했으며 동의합니다. (공식 음원 사용·필수 해시태그 등 유의사항 포함)</label>
+      </div>
+
+      <button type="submit" class="submit-btn">응모하기!</button>
+    </form>
+
+    <div class="success-box" id="successBox">
+      ✅ 응모해주셔서 감사합니다!<br>확인 후 담당자가 연락드리겠습니다.
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand">SIRIAI · INFLUENCER MARKETING AGENCY</div>
+  </div>
+</div>
+
+<script>
+function cp(btn,id){
+  const box=document.getElementById(id);
+  const txt=box.childNodes[0].textContent.trim();
+  navigator.clipboard.writeText(txt).then(()=>{btn.textContent='복사됨✓';btn.classList.add('done');setTimeout(()=>{btn.textContent='복사';btn.classList.remove('done')},1600)});
+}
+
+// TODO: 실제 제출처(Google Forms URL 또는 자체 백엔드 API)가 정해지면
+// 이 부분을 fetch 전송 또는 Google Forms formresponse 엔드포인트 전송 로직으로 교체.
+document.getElementById('applyForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  this.style.display='none';
+  document.getElementById('successBox').style.display='block';
+});
+</script>
+</body>
+</html>
