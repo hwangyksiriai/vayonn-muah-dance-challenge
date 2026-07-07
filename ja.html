@@ -60,6 +60,10 @@ body{font-family:var(--jp);background:var(--bg);color:var(--ink);line-height:1.7
 .video-info strong{display:block;font-size:14.5px;font-weight:700}
 .video-info span{font-size:12px;color:var(--gray)}
 
+.embed-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 14px 4px;margin-top:10px}
+.embed-card .embed-label{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--ink);padding:0 2px 12px}
+.embed-card .tiktok-embed{margin:0 auto !important}
+
 /* ---------- SOUND BUTTON ---------- */
 .sound-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--lavender);color:#fff;text-decoration:none;font-weight:700;font-size:14.5px;border-radius:100px;padding:15px 20px;width:100%}
 .sound-btn:hover{background:var(--lavender-dark)}
@@ -152,6 +156,13 @@ body{font-family:var(--jp);background:var(--bg);color:var(--ink);line-height:1.7
       <div class="play-icon">▶</div>
       <div class="video-info"><strong>参考動画②</strong><span>振り付けガイド動画を見る</span></div>
     </a>
+
+    <div class="embed-card">
+      <div class="embed-label">🎬 参考動画③ <span style="color:var(--gray);font-weight:500">(その場で再生)</span></div>
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@vayonn_inkode/video/7659345454953401621" data-video-id="7659345454953401621" style="max-width: 100%; min-width: 280px;">
+        <section><a target="_blank" href="https://www.tiktok.com/@vayonn_inkode?refer=embed">@vayonn_inkode</a></section>
+      </blockquote>
+    </div>
   </div>
 
   <!-- 公式音源 -->
@@ -254,6 +265,7 @@ body{font-family:var(--jp);background:var(--bg);color:var(--ink);line-height:1.7
   </div>
 </div>
 
+<script async src="https://www.tiktok.com/embed.js"></script>
 <script>
 function cp(btn,id){
   const box=document.getElementById(id);
