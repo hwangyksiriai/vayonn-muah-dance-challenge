@@ -143,6 +143,16 @@ body{font-family:var(--font);background:var(--page-bg);color:var(--ink);line-hei
     <div class="sub">先着順のご案内です。お早めにご応募ください。</div>
   </div>
 
+  <!-- アーティスト紹介 -->
+  <div class="section">
+    <div class="eyebrow">ABOUT</div>
+    <h2>VAYONNとは</h2>
+    <p class="ref-note">VAYONNは、iNKODEのボーイズグループ練習生公開プロジェクト「INTHE X project」を通じて結成され、2026年7月6日にデビューしたiNKODE所属の6人組多国籍ボーイズグループです。</p>
+    <a class="sound-btn" href="https://www.tiktok.com/@vayonn_inkode" target="_blank" rel="noopener">公式アカウントをフォローする（TikTok）</a>
+  </div>
+
+  <div class="divider"></div>
+
   <!-- 概要 -->
   <div class="section">
     <div class="eyebrow">OVERVIEW</div>
@@ -304,7 +314,7 @@ function cp(btn){
 
 // 応募内容をGoogleスプレッドシートに保存するApps Script WebアプリのURL。
 // google-apps-script.gs の手順でデプロイして発行される「...../exec」リンクをここに入れると保存が開始される。
-const GOOGLE_SCRIPT_URL = '';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyQNV9pr8GHDfubjy5x1H-8oZ8KEgaAO7FxpEeMwTc0dM4_ebslOfk1hmuZwKl7gmERMw/exec';
 
 document.getElementById('applyForm').addEventListener('submit', function(e){
   e.preventDefault();
