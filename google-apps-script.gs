@@ -13,7 +13,7 @@
  */
 
 function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Sheet1');
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
   var p = e.parameter;
 
   sheet.appendRow([
